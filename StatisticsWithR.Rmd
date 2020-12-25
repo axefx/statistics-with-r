@@ -1,0 +1,29 @@
+---
+title: "Statistics with R"
+output: html_notebook
+---
+
+## c()
+combine
+
+```{r}
+# help doc
+?c
+```
+example:
+used to create a sequence of values
+useful to paste comma separated values from pasteboard/clipboard
+
+5,4,6,3,5,6,4,2,7,5,7,5,4,3,2,5,6,7,7,5,7,6,7,4,2,2,7
+
+```{r}
+# create a sequence with combine function
+c(5,4,6,3,5,6,4,2,7,5,7,5,4,3,2,5,6,7,7,5,7,6,7,4,2,2,7)
+class(c(5,4,6,3,5,6,4,2,7,5,7,5,4,3,2,5,6,7,7,5,7,6,7,4,2,2,7))
+```
+## x <- c()
+save as variable
+```{r}
+# save sequence from combine function to variable x
+x <- c(5,4,6,3,5,6,4,2,7,5,7,5,4,3,2,5,6,7,7,5,7,6,7,4,2,2,7)
+```
