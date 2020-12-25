@@ -1,0 +1,155 @@
+---
+title: "The Sampling Distribution"
+output: html_notebook
+---
+
+pop.n <- read.csv("DataFiles/population.csv")
+X.samp <- sample(pop.n$height,100)
+X.samp
+```{r}
+# loads csv file into memory at pop.n
+pop.n <- read.csv("DataFiles/population.csv"); length(pop.n$height)
+# sample function gathers 100 observations from pop.n$height
+X.samp <- sample(pop.n$height,100)
+X.samp
+```
+```{r}
+X.samp <- sample(pop.n$height,100)
+X.bar <- mean(X.samp)
+X.bar
+```
+```{r}
+mean(pop.n$height)
+```
+> X.bar <- rep(0,10^5) > for(i in 1:10^5)
++{
++     X.samp <- sample(pop.1$height,100)
++     X.bar[i] <- mean(X.samp)
++}
+> hist(X.bar)
+
+```{r}
+?rep
+rep(0,10)
+```
+
+```{r}
+# replicates 100,000 "0"
+X.bar <- rep(0,10^5)
+# for each one sample 100 from pop.n$height and update the zero with the mean sampled
+for(i in 1:10^5)
+{
+     X.samp <- sample(pop.n$height,100)
+     X.bar[i] <- mean(X.samp)
+}
+# display histogram of all of the mean
+hist(X.bar)
+```
+> mean(pop.1$height)
+[1] 170.035
+> sd(pop.1$height)
+[1] 11.23205
+> mean(X.bar)
+[1] 170.037
+> sd(X.bar)
+[1] 1.122116
+
+```{r}
+mean(pop.n$height)
+sd(pop.n$height)
+mean(X.bar)
+sd(X.bar)
+```
+
+```{r}
+# produces the mean of a sequence of logical “TRUE” or “FALSE” values, depending on the value of the sample average being less or more than one unit away from the population mean.
+mean(abs(X.bar - mean(pop.n$height)) <= 1)
+```
+```{r}
+?rbinom
+rbinom(64,size = 10, prob = 0.5)
+```
+
+```{r}
+X.bar <- rep(0,10^5) 
+for(i in 1:10^5)
+{
+    X.samp <- rbinom(64,10,0.5)
+    X.bar[i] <- mean(X.samp) 
+}
+hist(X.bar)
+```
+
+```{r}
+mean(X.bar)
+sd(X.bar)
+```
+
+```{r}
+quantile(X.bar,c(0.025,0.975))
+```
+
+```{r}
+qnorm(c(0.025,0.975),mean(X.bar),sd(X.bar))
+```
+
+## Law of Large Numbers and Central Limit Theorem
+
+### Law of Large Numbers
+
+```{r}
+unif.10 <- rep(0,10^5)
+unif.100 <- rep(0,10^5) 
+unif.1000 <- rep(0,10^5) 
+for(i in 1:10^5)
+{
+     X.samp.10 <- runif(10,3,7)
+     unif.10[i] <- mean(X.samp.10)
+     X.samp.100 <- runif(100,3,7)
+     unif.100[i] <- mean(X.samp.100)
+     X.samp.1000 <- runif(1000,3,7)
+     unif.1000[i] <- mean(X.samp.1000) 
+}
+```
+
+```{r}
+mean(unif.10)
+mean(unif.100)
+mean(unif.1000)
+```
+
+```{r}
+var(unif.10)
+var(unif.100)
+var(unif.1000)
+```
+
+### Central Limit Theorem
+
+```{r}
+exp.10 <- rep(0,10^5)
+exp.100 <- rep(0,10^5)
+exp.1000 <- rep(0,10^5)
+for(i in 1:10^5)
+{
+     X.samp.10 <- rexp(10,0.5)
+     exp.10[i] <- mean(X.samp.10)
+     X.samp.100 <- rexp(100,0.5)
+     exp.100[i] <- mean(X.samp.100)
+     X.samp.1000 <- rexp(1000,0.5)
+ exp.1000[i] <- mean(X.samp.1000) 
+}
+```
+
+```{r}
+mean(exp.10)
+mean(exp.100)
+mean(exp.1000)
+```
+
+```{r}
+var(exp.10)
+var(exp.100)
+var(exp.1000)
+```
+
