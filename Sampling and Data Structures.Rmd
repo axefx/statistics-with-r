@@ -1,0 +1,28 @@
+---
+title: "Sampling and Data Structures"
+output: html_notebook
+---
+
+## Frequency
+
+work hours
+```{r}
+work.hours <- c(5,6,3,3,2,4,7,5,2,3,5,6,5,4,4,3,5,2,5,3)
+table(work.hours)
+```
+```{r}
+data.frame(table(work.hours))
+```
+### Relative Frequencies
+
+```{r}
+freq <- table(work.hours)
+print(freq)
+```
+```{r}
+sum(freq)
+```
+```{r}
+freq/sum(freq)
+```
+
