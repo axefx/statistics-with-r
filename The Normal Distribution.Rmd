@@ -1,0 +1,49 @@
+---
+title: "The Normal Distribution"
+output: html_notebook
+---
+The density of the Normal distribution can be computed with the aid of the function “dnorm”.
+The cumulative probability can be computed with the function “pnorm”.
+
+P(X ≤ 5) P(X ≤ 0)
+```{r}
+pnorm(5, 2,3) - pnorm(0, 2,3)
+```
+
+## The standard normal distribution
+
+The standard normal distribution is a normal distribution of standardized values, which are called z-scores.
+A z-score is the original measurement measured in units of the standard deviation from the expectation.
+The calculation of the z-score emerges from the equation:
+(0 =) x = μ + z · σ (= 2 + z · 3)
+
+### computing percentiles
+
+```{r}
+# computes central 95% percent
+# 97.5%-percentile
+qnorm(0.975)
+# 2.5%-percentile
+qnorm(0.025)
+
+```
+
+lower and upper thresholds for the defining outliers
+```{r}
+qnorm(0.75) + 1.5*(qnorm(0.75)-qnorm(0.25))
+qnorm(0.25) - 1.5*(qnorm(0.75)-qnorm(0.25))
+```
+
+## Continuity Corrections
+
+without correction
+```{r}
+pbinom(6,30,0.3)
+pnorm(6,30*0.3,sqrt(30*0.3*0.7))
+```
+
+with correction
+```{r}
+pnorm(6.5,30*0.3,sqrt(30*0.3*0.7))
+```
+
