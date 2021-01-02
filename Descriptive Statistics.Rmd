@@ -1,0 +1,58 @@
+---
+title: "Descriptive Statistics"
+output: html_notebook
+---
+
+```{r}
+ex.1 <- read.csv("DataFiles/ex1.csv")
+hist(ex.1$height)
+```
+
+```{r}
+boxplot(c(1,11.5,6,7.2,4,8,9,10,6.8,8.3,2,2,10,1))
+```
+
+```{r}
+boxplot(ex.1$height)
+```
+
+```{r}
+summary(ex.1$height)
+```
+
+```{r}
+x <- c(4,5,6,6,6,7,7,7,7,7,7,8,8,8,9,10)
+mean(x)
+median(x)
+```
+
+```{r}
+mean(ex.1$height)
+```
+
+```{r}
+median(ex.1$height)
+```
+
+```{r}
+x <- c(9, 9.5, 9.5, 10, 10, 10, 10, 10.5, 10.5, 10.5, 10.5, 11, 11, 11, 11, 11, 11, 11.5, 11.5, 11.5)
+length(x)
+```
+
+```{r}
+x.bar <- mean(x)
+x.bar
+x - x.bar
+(x - x.bar)^2
+```
+
+```{r}
+sum((x - x.bar)^2)/(length(x)-1)
+sqrt(sum((x-x.bar)^2)/(length(x)-1))
+```
+
+```{r}
+var(x)
+sd(x)
+```
+
