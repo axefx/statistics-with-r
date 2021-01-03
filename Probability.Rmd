@@ -1,0 +1,46 @@
+---
+title: "Probability"
+output: html_notebook
+---
+
+# Probability
+
+## Different forms of variability
+
+Population Variability  
+Random Variable  
+
+## A Population
+
+## Random Variables
+
+```{r}
+pop.1 <- read.csv("DataFiles/population.csv")
+sample(pop.1$height, 1)
+```
+
+```{r}
+sample(pop.1$height, 1)
+```
+
+```{r}
+sample(pop.1$height, 1)
+```
+
+### Sample Space and Distribution
+
+```{r}
+X <- pop.1$height
+```
+
+```{r}
+mean(abs(X-170) <= 10)
+```
+
+```{r}
+Y <- c(6.3, 6.9, 6.6, 3.4, 5.5, 4.3, 6.5, 4.7, 6.1, 5.3)
+abs(Y-5)
+abs(Y-5) <=1
+mean(abs(Y-5) <=1)
+```
+
